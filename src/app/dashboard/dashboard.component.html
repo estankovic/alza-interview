@@ -5,7 +5,7 @@
 
 
 <ng-container *ngIf="heroes$ | async as heroes">
-  <div *ngFor="let hero of heroes" class="heroCard">
+  <div *ngFor="let hero of heroes" class="heroCard" (click)="onHeroClick(hero)">
     {{hero.name}}
   </div>
 </ng-container>
