@@ -5,11 +5,11 @@
 
 <ng-container *ngIf="heroes$ | async as heroes">
   <div *ngFor="let hero of heroes" class="heroCard" (click)="onHeroClick(hero)">
-    {{hero.name}}
+    {{hero.name | enhanceName}}
   </div>
 </ng-container>
 
 <ng-container *ngIf="getActiveHero$() | async as activeHero">
-  <p><strong>{{activeHero.name}}</strong> is my hero!!!</p>
+  <p><strong>{{activeHero.name | enhanceName}}</strong> is my hero!!!</p>
   <button (click)="onDetailsClick(activeHero)">View Details</button>
 </ng-container>

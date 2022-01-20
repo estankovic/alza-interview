@@ -4,7 +4,7 @@
     <li (click)="onHeroesClick(hero)">Heroes</li>
   </ul>
 
-  <h2>{{hero.name}} details</h2>
+  <h2>{{hero.name | enhanceName}} details</h2>
   <ng-container [formGroup]="form">
     <div class="form-field">
       <label for="id">id:</label>
