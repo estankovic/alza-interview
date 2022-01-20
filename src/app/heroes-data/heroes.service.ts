@@ -19,6 +19,12 @@ export class HeroesService {
     return this.heroes$;
   }
 
+  getTopHeroes$(): Observable<Hero[]> {
+    return this.getHeroes$().pipe(
+      map(heroes => heroes.sort((a, b) => b.rank - a.rank).slice(0, 3))
+    );
+  }
+
   updateHero(hero: Hero) {
     const heroes = [...this.heroesSubject$.getValue()];
     const heroIndex = heroes.findIndex(h => hero.id === h.id);
