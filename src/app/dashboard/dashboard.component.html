@@ -9,6 +9,8 @@
       <div class="card" [routerLink]="'/heroes/' + hero.id">
         <div class="card-body text-center">
           {{hero.name | enhanceName}}
+          <br>
+          <em class="fw-lighter">(Rank: {{hero.rank}})</em>
         </div>
       </div>
     </div>
