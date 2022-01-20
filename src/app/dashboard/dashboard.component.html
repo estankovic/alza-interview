@@ -1,1 +1,12 @@
-<p>dashboard works!</p>
+<ul>
+  <li routerLink="/dashboard">Dashboard</li>
+  <li routerLink="/heroes">Heroes</li>
+</ul>
+
+
+<ng-container *ngIf="heroes$ | async as heroes">
+  <div *ngFor="let hero of heroes" class="heroCard">
+    {{hero.name}}
+  </div>
+</ng-container>
+
