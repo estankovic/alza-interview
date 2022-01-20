@@ -6,7 +6,7 @@
 <div class="row">
   <ng-container *ngIf="heroes$ | async as heroes">
     <div class="col" *ngFor="let hero of heroes">
-      <div class="card" [routerLink]="'/heroes/' + hero.id">
+      <div class="card" [routerLink]="'/heroes/' + hero.id + '/edit'">
         <div class="card-body text-center">
           {{hero.name | enhanceName}}
           <br>
