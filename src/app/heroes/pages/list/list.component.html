@@ -1,15 +1,23 @@
-<ul>
-  <li routerLink="/dashboard">Dashboard</li>
-  <li routerLink="/heroes">Heroes</li>
-</ul>
+<nav class="main-nav">
+  <button class="btn btn-secondary" routerLink="/dashboard" routerLinkActive="disabled">Dashboard</button>
+  <button class="btn btn-secondary" routerLink="/heroes" routerLinkActive="disabled">Heroes</button>
+</nav>
 
 <ng-container *ngIf="heroes$ | async as heroes">
-  <div *ngFor="let hero of heroes" class="heroCard" (click)="onHeroClick(hero)">
-    {{hero.name | enhanceName}}
-  </div>
+  <ul class="list-group">
+    <li
+      *ngFor="let hero of heroes"
+      class="list-group-item"
+      [routerLink]="'/heroes/' + hero.id"
+      routerLinkActive="active"
+    >{{hero.id}} | {{ hero.name | enhanceName}}</li>
+  </ul>
 </ng-container>
 
-<ng-container *ngIf="getActiveHero$() | async as activeHero">
-  <p><strong>{{activeHero.name | enhanceName}}</strong> is my hero!!!</p>
-  <button (click)="onDetailsClick(activeHero)">View Details</button>
-</ng-container>
+
+<div class="card" *ngIf="getActiveHero$() | async as activeHero">
+  <div class="card-body">
+    <p><strong>{{activeHero.name | enhanceName}}</strong> is my hero!!!</p>
+    <button class="btn btn-primary" [routerLink]="'/heroes/' + activeHero.id + '/edit'">View Details</button>
+  </div>
+</div>

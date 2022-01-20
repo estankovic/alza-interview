@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {HeroesService} from '../../../heroes-data/heroes.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Hero} from '../../../heroes-data/hero.types';
 import {map, switchMap, tap} from 'rxjs/operators';
 import {FormControl, FormGroup} from '@angular/forms';
@@ -31,7 +31,6 @@ export class EditComponent implements OnInit {
 
   constructor(
     private readonly heroService: HeroesService,
-    private readonly router: Router,
     private readonly route: ActivatedRoute
   ) { }
 
@@ -41,9 +40,5 @@ export class EditComponent implements OnInit {
   onSave() {
     const hero: Hero = this.form.getRawValue();
     this.heroService.updateHero(hero);
-  }
-
-  onHeroesClick(hero: Hero) {
-    this.router.navigate(['heroes', hero.id]);
   }
 }

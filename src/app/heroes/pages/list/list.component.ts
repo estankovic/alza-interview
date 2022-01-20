@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {HeroesService} from '../../../heroes-data/heroes.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Observable} from 'rxjs';
 import {Hero} from '../../../heroes-data/hero.types';
 import {map, switchMap} from 'rxjs/operators';
@@ -17,7 +17,6 @@ export class ListComponent implements OnInit {
 
   constructor(
     private readonly heroService: HeroesService,
-    private readonly router: Router,
     private readonly route: ActivatedRoute
   ) { }
 
@@ -30,13 +29,4 @@ export class ListComponent implements OnInit {
       switchMap(id => this.heroService.getHero$(id))
     )
   }
-
-  onHeroClick(hero: Hero) {
-    this.router.navigate(['heroes', hero.id]);
-  }
-
-  onDetailsClick(hero: Hero) {
-    this.router.navigate(['heroes', hero.id, 'edit']);
-  }
-
 }

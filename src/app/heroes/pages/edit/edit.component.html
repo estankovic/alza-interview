@@ -1,29 +1,32 @@
 <ng-container *ngIf="hero$ | async as hero; else noHero">
+  <nav class="main-nav">
+    <button class="btn btn-secondary" routerLink="/dashboard">Dashboard</button>
+    <button class="btn btn-secondary" [routerLink]="'/heroes/' + hero.id">Heroes</button>
+  </nav>
 
-  <ul>
-    <li routerLink="/dashboard">Dashboard</li>
-    <li (click)="onHeroesClick(hero)">Heroes</li>
-  </ul>
+
+
 
   <h2 class="title">{{hero.name | enhanceName}} details</h2>
   <ng-container [formGroup]="form">
-    <div class="form-field">
-      <label for="id">id:</label>
-      <input readonly id="id" formControlName="id"/>
+
+    <div class="mb-3">
+      <label for="id" class="form-label">ID:</label>
+      <input readonly class="form-control" id="id" formControlName="id">
     </div>
 
-    <div class="form-field">
-      <label for="name">Name:</label>
-      <input id="name" formControlName="name"/>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input class="form-control" id="name" formControlName="name">
     </div>
 
-    <div class="form-field">
-      <label for="rank">Rank:</label>
-      <input type="number" id="rank" formControlName="rank"/>
+    <div class="mb-3">
+      <label for="rank" class="form-label">Rank:</label>
+      <input type="number" class="form-control" id="rank" formControlName="rank">
     </div>
 
-    <button routerLink="/">Back</button>
-    <button (click)="onSave()">Save</button>
+    <button class="btn btn-secondary me-1" routerLink="/">Back</button>
+    <button class="btn btn-primary" (click)="onSave()">Save</button>
   </ng-container>
 </ng-container>
 

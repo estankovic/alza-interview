@@ -1,12 +1,16 @@
-<ul>
-  <li routerLink="/dashboard">Dashboard</li>
-  <li routerLink="/heroes">Heroes</li>
-</ul>
+<nav class="main-nav">
+  <button class="btn btn-secondary" routerLink="/dashboard" routerLinkActive="disabled">Dashboard</button>
+  <button class="btn btn-secondary" routerLink="/heroes" routerLinkActive="disabled">Heroes</button>
+</nav>
 
-
-<ng-container *ngIf="heroes$ | async as heroes">
-  <div *ngFor="let hero of heroes" class="heroCard" (click)="onHeroClick(hero)">
-    {{hero.name | enhanceName}}
-  </div>
-</ng-container>
-
+<div class="row">
+  <ng-container *ngIf="heroes$ | async as heroes">
+    <div class="col" *ngFor="let hero of heroes">
+      <div class="card" [routerLink]="'/heroes/' + hero.id">
+        <div class="card-body text-center">
+          {{hero.name | enhanceName}}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
