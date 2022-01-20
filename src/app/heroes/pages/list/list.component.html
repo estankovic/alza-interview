@@ -10,7 +10,7 @@
       class="list-group-item"
       [routerLink]="'/heroes/' + hero.id"
       routerLinkActive="active"
-    >{{hero.id}} | {{ hero.name | enhanceName}}</li>
+    >ID:{{hero.id}} | {{ hero.name | enhanceName}} <em class="fw-lighter">(Score: {{hero.score}})</em></li>
   </ul>
 </ng-container>
 

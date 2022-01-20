@@ -16,7 +16,7 @@ export class EditComponent implements OnInit {
   form = new FormGroup({
     id: new FormControl(null),
     name: new FormControl(null),
-    rank: new FormControl(0)
+    score: new FormControl(0)
   })
 
   readonly hero$ = this.route.paramMap.pipe(
