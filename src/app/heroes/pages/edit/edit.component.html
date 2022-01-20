@@ -1,10 +1,11 @@
-<ng-container *ngIf="hero$ | async as hero">
+<ng-container *ngIf="hero$ | async as hero; else noHero">
+
   <ul>
     <li routerLink="/dashboard">Dashboard</li>
     <li (click)="onHeroesClick(hero)">Heroes</li>
   </ul>
 
-  <h2>{{hero.name | enhanceName}} details</h2>
+  <h2 class="title">{{hero.name | enhanceName}} details</h2>
   <ng-container [formGroup]="form">
     <div class="form-field">
       <label for="id">id:</label>
@@ -25,3 +26,7 @@
     <button (click)="onSave()">Save</button>
   </ng-container>
 </ng-container>
+
+<ng-template #noHero>
+  <h1>ERROR, Hero does not exist</h1>
+</ng-template>
