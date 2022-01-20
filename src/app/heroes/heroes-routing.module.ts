@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeroesComponent } from './heroes.component';
+import { EditComponent } from './pages/edit/edit.component';
+import {ListComponent} from './pages/list/list.component';
 
 const routes: Routes = [
-  { path: '', component: HeroesComponent },
-  { path: ':id', component: HeroesComponent }
+  { path: '', component: ListComponent },
+  { path: ':id', component: ListComponent },
+  { path: ':id/edit', component: EditComponent }
 ];
 
 @NgModule({

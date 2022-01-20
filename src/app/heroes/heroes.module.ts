@@ -2,16 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HeroesRoutingModule } from './heroes-routing.module';
-import { HeroesComponent } from './heroes.component';
+import { EditComponent } from './pages/edit/edit.component';
+import {ListComponent} from './pages/list/list.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    HeroesComponent
+    ListComponent,
+    EditComponent,
   ],
   imports: [
     CommonModule,
-    HeroesRoutingModule
-  ]
+    HeroesRoutingModule,
+    ReactiveFormsModule,
+  ],
 })
 export class HeroesModule { }

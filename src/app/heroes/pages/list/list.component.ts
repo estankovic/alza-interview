@@ -1,17 +1,17 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {HeroesService} from '../heroes-data/heroes.service';
+import {HeroesService} from '../../../heroes-data/heroes.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs';
-import {Hero} from '../heroes-data/hero.types';
+import {Hero} from '../../../heroes-data/hero.types';
 import {map, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.scss'],
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeroesComponent implements OnInit {
+export class ListComponent implements OnInit {
 
   readonly heroes$ = this.heroService.getHeroes$();
 
